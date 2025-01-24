@@ -4,26 +4,16 @@ using UnityEngine;
 
 public class FanForceScript : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _targetObject;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    [SerializeField] private float speed;
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Bubble"))
         {
-            other.GetComponent<Rigidbody2D>().AddForce(transform.right * 10);
+            other.GetComponent<Rigidbody2D>().AddForce(transform.right * speed);
         }
     }
 }

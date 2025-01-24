@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6789469331700010360}
   - component: {fileID: 8244379330503170245}
   - component: {fileID: 1894512666576760711}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Bubble
   m_TagString: Bubble
   m_Icon: {fileID: 0}
@@ -102,6 +102,8 @@ MonoBehaviour:
   size: 1
   bubbleO: {fileID: 319598746699297519}
   aliv: 1
+  enable: 0
+  explosionEffect: {fileID: 8717185814824203155, guid: cc9686e03e91c764296b0d46122587a0, type: 3}
 --- !u!50 &8244379330503170245
 Rigidbody2D:
   serializedVersion: 4
@@ -115,7 +117,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
