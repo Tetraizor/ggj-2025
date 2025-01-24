@@ -13,7 +13,7 @@ public class ToolboxManager : MonoSingleton<ToolboxManager>
     public Slot SelectedSlot => _selectedSlot;
 
     public delegate void SlotClickedEventHandler(Slot slot);
-    public event SlotClickedEventHandler SlotClicked;
+    public static event SlotClickedEventHandler SlotClicked;
 
     private bool _isToolboxOpen = true;
     public bool IsToolboxOpen => _isToolboxOpen;

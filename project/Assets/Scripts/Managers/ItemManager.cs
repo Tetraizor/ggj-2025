@@ -15,7 +15,8 @@ public class ItemManager : MonoSingleton<ItemManager>
 
     protected override void Awake()
     {
-        ToolboxManager.Instance.SlotClicked += OnSlotClicked;
+        base.Awake();
+        ToolboxManager.SlotClicked += OnSlotClicked;
     }
 
     private void OnSlotClicked(Slot slot)
