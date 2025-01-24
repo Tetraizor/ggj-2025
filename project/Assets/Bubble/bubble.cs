@@ -8,7 +8,13 @@ public class bubble : MonoBehaviour
     public float size = 1;
     [SerializeField] private GameObject bubbleO;
     public bool aliv = true;
-
+    private void Update()
+    {
+        if(!GetComponent<Collider2D>().enabled)
+        {
+            Debug.Log("waltuh");
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
             float targetRadius = Mathf.Sqrt(collision.transform.GetComponent<bubble>().size);
@@ -32,12 +38,19 @@ public class bubble : MonoBehaviour
         yield return new WaitForSeconds(0.21f);
         if (aliv)
         {
-            collision.gameObject.GetComponent<bubble>().aliv = false;
-            GameObject b = Instantiate(bubbleO, center, Quaternion.identity);
-            b.GetComponent<bubble>().size = size + targetRadius;
-            b.transform.localScale = new Vector3(Mathf.Sqrt(size + targetRadius), Mathf.Sqrt(size + targetRadius), 1);
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
+            try
+            {
+                collision.gameObject.GetComponent<bubble>().aliv = false;
+                GameObject b = Instantiate(bubbleO, center, Quaternion.identity);
+                b.GetComponent<bubble>().size = size + targetRadius;
+                b.transform.localScale = new Vector3(Mathf.Sqrt(size + targetRadius), Mathf.Sqrt(size + targetRadius), 1);
+                Destroy(collision.gameObject);
+                Destroy(gameObject);
+            }
+            catch
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
