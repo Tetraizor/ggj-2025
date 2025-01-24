@@ -23,7 +23,7 @@ public class FanForceScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bubble"))
         {
-            other.GetComponent<Rigidbody2D>().AddForce(transform.up * 10);
+            other.GetComponent<Rigidbody2D>().AddForce(transform.right * 10);
         }
     }
 }

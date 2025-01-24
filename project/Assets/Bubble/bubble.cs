@@ -8,13 +8,6 @@ public class bubble : MonoBehaviour
     public float size = 1;
     [SerializeField] private GameObject bubbleO;
     public bool aliv = true;
-    private void Update()
-    {
-        if(!GetComponent<Collider2D>().enabled)
-        {
-            Debug.Log("waltuh");
-        }
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.GetComponent<bubble>() != null)
