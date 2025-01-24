@@ -17,6 +17,8 @@ public class bubble : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.gameObject.GetComponent<bubble>() != null)
+        {
             float targetRadius = Mathf.Sqrt(collision.transform.GetComponent<bubble>().size);
             Vector3 center = (transform.position * Mathf.Sqrt(size) + collision.transform.position * targetRadius) / (Mathf.Sqrt(size) + targetRadius);
 
@@ -32,6 +34,7 @@ public class bubble : MonoBehaviour
             {
                 GetComponent<SpriteRenderer>().DOFade(0, 0.1f);
             }
+        }
     }
     IEnumerator WaitForSecondsExample(Vector3 TrueRad, Vector3 center, Collider2D collision, float targetRadius)
     {
