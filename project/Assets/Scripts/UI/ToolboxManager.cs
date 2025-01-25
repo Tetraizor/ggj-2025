@@ -29,6 +29,8 @@ public class ToolboxManager : MonoSingleton<ToolboxManager>
         {
             slot.Button.onClick.AddListener(() => OnSlotClicked(slot));
             slot.Button.onClick.AddListener(() => SlotClicked?.Invoke(slot));
+
+            slot.UpdateGraphics();
         }
 
         ItemManager.Instance.ItemPlaced += OnItemPlaced;
@@ -38,10 +40,18 @@ public class ToolboxManager : MonoSingleton<ToolboxManager>
     {
         _selectedSlot = null;
         Open();
+
+        _slots.Find(slot => slot.Item == item).Count--;
+        _slots.ForEach(slot => slot.UpdateGraphics());
     }
 
     private void OnSlotClicked(Slot slot)
     {
+        if (slot.Count == 0)
+        {
+            return;
+        }
+
         if (_selectedSlot != null)
         {
             // Deselect old one.

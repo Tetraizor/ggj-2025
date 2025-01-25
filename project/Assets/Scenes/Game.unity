@@ -409,10 +409,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5086476890448289949, guid: ef0d9bd7c4fd24350985be59ed9ae14d, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: f8b27ffaccc96544aba3567a787c2e8b, type: 3}
+    - target: {fileID: 6562341362639939692, guid: ef0d9bd7c4fd24350985be59ed9ae14d, type: 3}
+      propertyPath: Count
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6562341362639939692, guid: ef0d9bd7c4fd24350985be59ed9ae14d, type: 3}
       propertyPath: _item._icon
       value: 
@@ -927,6 +927,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6562341362639939692, guid: ef0d9bd7c4fd24350985be59ed9ae14d, type: 3}
+      propertyPath: Count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6562341362639939692, guid: ef0d9bd7c4fd24350985be59ed9ae14d, type: 3}
+      propertyPath: _item._icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 2017b0c9a5eb26f43b32a807daa99b88, type: 3}
     - target: {fileID: 6562341362639939692, guid: ef0d9bd7c4fd24350985be59ed9ae14d, type: 3}
       propertyPath: _item._name
       value: Test Placable

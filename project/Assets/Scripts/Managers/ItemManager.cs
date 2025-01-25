@@ -27,8 +27,7 @@ public class ItemManager : MonoSingleton<ItemManager>
     {
         if (Input.GetMouseButtonDown(0))
         {
-            
-            RaycastHit2D hit = Physics2D.Raycast(_cursor.position, Vector2.zero, 1,LayerMask.GetMask("Wall", "DontIgnore"));
+            RaycastHit2D hit = Physics2D.Raycast(_cursor.position, Vector2.zero, 1, LayerMask.GetMask("Wall", "DontIgnore"));
 
             if (hit.collider == null)
             {
