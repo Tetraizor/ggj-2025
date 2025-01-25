@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BubbleManager : MonoSingleton<BubbleManager>
 {
@@ -18,5 +19,9 @@ public class BubbleManager : MonoSingleton<BubbleManager>
         {
             GameStarted = true;
         } 
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }

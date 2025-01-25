@@ -13,7 +13,7 @@ public class bubble2 : MonoBehaviour
     public bool Dominated = false;
 
     private bool enable = false;
-    private float e_timer = 1f;
+    private float e_timer = 1.5f;
     private Collider2D myCol;
     private bool enable_self = false;
     private void Awake()
