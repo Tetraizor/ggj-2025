@@ -5,17 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class BubbleManager : MonoSingleton<BubbleManager>
 {
-    protected override void Awake()
-    {
-        foreach (GameObject pos in TransitionManager.Instance.ResetPositionMap.Keys)
-        {
-            print(pos.name);
-            Instantiate(pos, TransitionManager.Instance.ResetPositionMap[pos], TransitionManager.Instance.ResetRotationMap[pos]);
-            
-        }
-        TransitionManager.Instance.ResetPositionMap.Clear();
-        TransitionManager.Instance.ResetRotationMap.Clear();
-    }
     // Start is called before the first frame update
     void Start()
     {

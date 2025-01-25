@@ -7,9 +7,7 @@ using UnityEngine.SceneManagement;
 public class TransitionManager : MonoSingleton<TransitionManager>
 {
     // Start is called before the first frame update
-    public Dictionary<GameObject, Vector3> ResetPositionMap = new Dictionary<GameObject, Vector3>();
-    public Dictionary<GameObject, Quaternion> ResetRotationMap = new Dictionary<GameObject, Quaternion>();
-    public List<int> slot;
+
     protected override void Awake()
     {
         base.Awake();
@@ -28,13 +26,6 @@ public class TransitionManager : MonoSingleton<TransitionManager>
         scene = s;
         GetComponent<Animator>().SetTrigger("go");
 
-    }
-
-    public void Resett()
-    {
-        slot = new List<int>();
-        ResetPositionMap.Clear();
-        ResetRotationMap.Clear();
     }
 }
 

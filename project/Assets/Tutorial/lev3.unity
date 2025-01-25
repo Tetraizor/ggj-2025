@@ -2385,8 +2385,16 @@ PrefabInstance:
       value: DenizAbasi
       objectReference: {fileID: 0}
     - target: {fileID: 6731435459042541662, guid: d6e892dda70886d41b290cf6a2122a31, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731435459042541662, guid: d6e892dda70886d41b290cf6a2122a31, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731435459042541662, guid: d6e892dda70886d41b290cf6a2122a31, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 8518367898601497767, guid: d6e892dda70886d41b290cf6a2122a31, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2428,7 +2436,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7259838897599822424, guid: d6e892dda70886d41b290cf6a2122a31, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2504,11 +2513,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6202907565207907281, guid: 7166e4b226e8cad43bce04bdb8ece837, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.03
+      value: -1.05
       objectReference: {fileID: 0}
     - target: {fileID: 6202907565207907281, guid: 7166e4b226e8cad43bce04bdb8ece837, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.76
+      value: -2.21
       objectReference: {fileID: 0}
     - target: {fileID: 6202907565207907281, guid: 7166e4b226e8cad43bce04bdb8ece837, type: 3}
       propertyPath: m_LocalPosition.z

@@ -18,8 +18,6 @@ public class ToNextLevel : MonoBehaviour
         }
         if(volume == ShouldBeVolume)
         {
-            Destroy(SlotManager);
-            TransitionManager.Instance.Resett();
             TransitionManager.Instance.PlayDeath(scene);
         }
     }

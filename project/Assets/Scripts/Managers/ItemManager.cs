@@ -65,9 +65,6 @@ public class ItemManager : MonoSingleton<ItemManager>
                     _currentPlacable = placable;
                     _isPlacingItem = true;
 
-
-                    //Where the magic happens
-                    TransitionManager.Instance.ResetPositionMap.Add(_selectedItem.RelatedPrefab, _currentPlacable.transform.position);
                 }
             }
         }
@@ -89,8 +86,6 @@ public class ItemManager : MonoSingleton<ItemManager>
         {
             if (_isPlacingItem && _currentPlacable != null)
             {
-                //This is also where the magic happens
-                TransitionManager.Instance.ResetRotationMap.Add(_selectedItem.RelatedPrefab, _currentPlacable.transform.rotation);
                 _currentPlacable = null;
                 _isPlacingItem = false;
 
@@ -101,5 +96,9 @@ public class ItemManager : MonoSingleton<ItemManager>
         Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         _cursor.transform.position = new Vector3(position.x, position.y, 0);
+    }
+    private void OnDestroy()
+    {
+        ToolboxManager.SlotClicked -= OnSlotClicked;
     }
 }
