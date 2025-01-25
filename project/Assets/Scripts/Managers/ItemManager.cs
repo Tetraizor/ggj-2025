@@ -16,6 +16,7 @@ public class ItemManager : MonoSingleton<ItemManager>
     {
         base.Awake();
         ToolboxManager.SlotClicked += OnSlotClicked;
+        _cursor.GetComponent<SpriteRenderer>().sprite = null;
     }
 
     private void OnSlotClicked(Slot slot)
