@@ -5,7 +5,8 @@ using UnityEngine;
 public class FanSprite : MonoBehaviour
 {
     private Animator anim;
-    [SerializeField] private ParticleSystem ps;
+    [SerializeField] private GameObject ps;
+    [SerializeField] private GameObject ps2;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -18,16 +19,15 @@ public class FanSprite : MonoBehaviour
         if(BubbleManager.Instance.GameStarted)
         {
             anim.SetBool("run", true);
-            if (!ps.isPlaying)
-            {
-                ps.Play();
-            }
+            ps.SetActive(true);
+            ps2.SetActive(true);
             
         }
         else
         {
             anim.SetBool("run", false);
-            ps.Stop();
+            ps.SetActive(false);
+            ps2.SetActive(false);
         }
     }
 }
