@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class Slot : MonoBehaviour
 {
+    
     [SerializeField] private Item _item;
     public Item Item => _item;
 

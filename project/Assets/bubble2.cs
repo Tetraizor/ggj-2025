@@ -14,9 +14,19 @@ public class bubble2 : MonoBehaviour
 
     private bool enable = false;
     private float e_timer = 1f;
+    private Collider2D myCol;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        myCol= GetComponent<Collider2D>();
+        myCol.enabled = false;
+    }
+    private void Update()
+    {
+        if(BubbleManager.Instance.GameStarted && !myCol.enabled)
+        {
+            myCol.enabled = true;
+        }
     }
     private void FixedUpdate()
     {
@@ -33,6 +43,12 @@ public class bubble2 : MonoBehaviour
         if (e_timer < 0 && !enable)
         {
             enable= true;
+        }
+
+
+        if (rb.velocity.magnitude <= 0.01)
+        {
+            rb.AddForce(new Vector2(Random.Range(-1, 1), Random.Range(-1, 1)) * 1.5f);
         }
     }
     [SerializeField] private GameObject summonWhenPop;
@@ -61,6 +77,7 @@ public class bubble2 : MonoBehaviour
         x.transform.localScale = transform.localScale;
         Destroy(gameObject);
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Bubble") && enable)
@@ -102,5 +119,10 @@ public class bubble2 : MonoBehaviour
                 
             }
         }
+        else if (collision.CompareTag("Wall"))
+        {
+            Death();
+        }
     }
+    
 }

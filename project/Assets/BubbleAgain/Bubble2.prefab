@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3563916194762655967}
   - component: {fileID: 4371346406527761771}
   - component: {fileID: 771000787138406737}
+  - component: {fileID: 7394845081336297762}
   m_Layer: 6
   m_Name: Bubble2
   m_TagString: Bubble
@@ -165,3 +166,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7394845081336297762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6220016811768216605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e4f307ba91271d4cad8d1da2d9b9497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
