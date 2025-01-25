@@ -49,6 +49,7 @@ public class ItemManager : MonoSingleton<ItemManager>
             {
                 if (_selectedItem != null)
                 {
+
                     _cursor.GetComponent<SpriteRenderer>().color = Color.red;
                     var placable = Instantiate(
                         _selectedItem.RelatedPrefab,
@@ -63,6 +64,10 @@ public class ItemManager : MonoSingleton<ItemManager>
 
                     _currentPlacable = placable;
                     _isPlacingItem = true;
+
+
+                    //Where the magic happens
+                    TransitionManager.Instance.ResetPositionMap.Add(_selectedItem.RelatedPrefab, _currentPlacable.transform.position);
                 }
             }
         }
@@ -71,6 +76,7 @@ public class ItemManager : MonoSingleton<ItemManager>
         {
             if (_isPlacingItem && _currentPlacable != null)
             {
+                
                 Vector3 placablePosition = _currentPlacable.transform.position;
                 Vector2 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - placablePosition;
                 float angle = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
@@ -83,6 +89,8 @@ public class ItemManager : MonoSingleton<ItemManager>
         {
             if (_isPlacingItem && _currentPlacable != null)
             {
+                //This is also where the magic happens
+                TransitionManager.Instance.ResetRotationMap.Add(_selectedItem.RelatedPrefab, _currentPlacable.transform.rotation);
                 _currentPlacable = null;
                 _isPlacingItem = false;
 

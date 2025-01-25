@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 public class TransitionManager : MonoSingleton<TransitionManager>
 {
     // Start is called before the first frame update
-    void Awake()
+    public Dictionary<GameObject, Vector3> ResetPositionMap = new Dictionary<GameObject, Vector3>();
+    public Dictionary<GameObject, Quaternion> ResetRotationMap = new Dictionary<GameObject, Quaternion>();
+    protected override void Awake()
     {
         base.Awake();
         DontDestroyOnLoad(gameObject);
@@ -17,12 +19,12 @@ public class TransitionManager : MonoSingleton<TransitionManager>
     public void EndScreen()
     {
         SceneManager.LoadScene(scene);
-
     }
     public void PlayDeath(string s)
     {
         scene = s;
         GetComponent<Animator>().SetTrigger("go");
+
     }
 
 }
