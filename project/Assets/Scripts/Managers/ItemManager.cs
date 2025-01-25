@@ -4,8 +4,6 @@ using UnityEngine;
 public class ItemManager : MonoSingleton<ItemManager>
 {
     [SerializeField] private GameObject _cursor;
-    [SerializeField] private Sprite _cursorstart;
-
     [SerializeField] private Item _selectedItem => ToolboxManager.Instance.SelectedSlot?.Item;
 
     private bool _isPlacingItem = false;
@@ -18,8 +16,6 @@ public class ItemManager : MonoSingleton<ItemManager>
     {
         base.Awake();
         ToolboxManager.SlotClicked += OnSlotClicked;
-        Cursor.visible = false;
-        _cursorstart = _cursor.GetComponent<SpriteRenderer>().sprite;
     }
 
     private void OnSlotClicked(Slot slot)
@@ -48,8 +44,6 @@ public class ItemManager : MonoSingleton<ItemManager>
 
         if (Input.GetMouseButtonDown(0))
         {
-            
-
             if (hit.collider == null)
             {
                 if (_selectedItem != null)
@@ -61,8 +55,8 @@ public class ItemManager : MonoSingleton<ItemManager>
                         Quaternion.identity
 
                     );
-                    _cursor.GetComponent<SpriteRenderer>().sprite = _cursorstart;
                     _cursor.GetComponent<SpriteRenderer>().color = Color.white;
+                    _cursor.GetComponent<SpriteRenderer>().sprite = null;
 
                     placable.name = _selectedItem.Name;
 
