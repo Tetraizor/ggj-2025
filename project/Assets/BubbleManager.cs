@@ -23,7 +23,7 @@ public class BubbleManager : MonoSingleton<BubbleManager>
         } 
         if(Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            TransitionManager.Instance.PlayDeath(SceneManager.GetActiveScene().name);
         }
     }
 }

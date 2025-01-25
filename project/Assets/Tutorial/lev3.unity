@@ -2300,7 +2300,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Usher Knife
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7174312008097643288, guid: 9d5bd7559b12dd94e84e8fefdda46689, type: 3}
+    - {fileID: 8942838362537447833, guid: 9d5bd7559b12dd94e84e8fefdda46689, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
