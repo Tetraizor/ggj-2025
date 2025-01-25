@@ -11,6 +11,9 @@ public class bubble2 : MonoBehaviour
     [SerializeField] private GameObject bubbleO;
     private Transform Target;
     public bool Dominated = false;
+
+    private bool enable = false;
+    private float e_timer = 1f;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -21,15 +24,46 @@ public class bubble2 : MonoBehaviour
         {
             Vector3 dir = -transform.position + Target.position;
             rb.velocity= dir *3 ;
-            if (dir.magnitude < 0.3 || GetComponent<SpriteRenderer>().color.a == 0)
+            if (GetComponent<SpriteRenderer>().color.a == 0)
             {
                 Destroy(gameObject);
             }
         }
+        e_timer -= Time.fixedDeltaTime;
+        if (e_timer < 0 && !enable)
+        {
+            enable= true;
+        }
+    }
+    [SerializeField] private GameObject summonWhenPop;
+    public void Pop(Vector3 collisionPoint)
+    {
+        GameObject x = Instantiate(summonWhenPop, transform.position, Quaternion.identity);
+        x.transform.localScale = transform.localScale;
+        Vector3 onePos = (collisionPoint);
+        Vector3 secPos = -(collisionPoint);
+        GameObject b = Instantiate(bubbleO, transform.position, Quaternion.identity);
+        b.GetComponent<bubble2>().size = size / 2;
+        b.transform.localScale = new Vector3(Mathf.Sqrt(size / 2), Mathf.Sqrt(size / 2), 1);
+        b.GetComponent<Rigidbody2D>().velocity = (onePos * Mathf.Sqrt(size) )/ 3;
+        b.GetComponent<Rigidbody2D>().velocity += rb.velocity/2;
+
+        GameObject k = Instantiate(bubbleO, transform.position, Quaternion.identity);
+        k.GetComponent<bubble2>().size = size / 2;
+        k.transform.localScale = new Vector3(Mathf.Sqrt(size / 2), Mathf.Sqrt(size / 2), 1);
+        k.GetComponent<Rigidbody2D>().velocity = (secPos * Mathf.Sqrt(size))/3;
+        k.GetComponent<Rigidbody2D>().velocity += rb.velocity/2;
+        Destroy(gameObject);
+    }
+    public void Death()
+    {
+        GameObject x = Instantiate(summonWhenPop, transform.position, Quaternion.identity);
+        x.transform.localScale = transform.localScale;
+        Destroy(gameObject);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Bubble"))
+        if (collision.CompareTag("Bubble") && enable)
         {
             bubble2 bub = collision.gameObject.GetComponent<bubble2>();
             Rigidbody2D colrb = collision.gameObject.GetComponent<Rigidbody2D>();
@@ -42,11 +76,14 @@ public class bubble2 : MonoBehaviour
             {
                 if (Mathf.Sqrt(size) * 1.2f < Mathf.Sqrt(colSize))
                 {
+                    print("waltuh?");
                     Target = collision.transform;
                     Dominated = true;
                     colSize += size;
+                    bub.size = colSize;
+                    colrb.mass = colSize;
                     transform.DOScale(new Vector3(0, 0, 1), 0.5f);
-                    GetComponent<SpriteRenderer>().DOFade(0, 0.2f);
+                    GetComponent<SpriteRenderer>().DOFade(0, 0.3f);
                     collision.transform.DOScale(new Vector3(Mathf.Sqrt(colSize), Mathf.Sqrt(colSize), 1), 0.2f);
                     colrb.velocity = newVel;
                 }
@@ -56,6 +93,7 @@ public class bubble2 : MonoBehaviour
                     bub.Dominated = true;
 
                     size += colSize;
+                    rb.mass = size;
                     collision.transform.DOScale(new Vector3(0, 0, 1), 0.5f);
                     collision.GetComponent<SpriteRenderer>().DOFade(0, 0.2f);
                     transform.DOScale(new Vector3(Mathf.Sqrt(size), Mathf.Sqrt(size), 1), 0.2f);

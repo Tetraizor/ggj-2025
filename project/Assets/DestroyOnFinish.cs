@@ -8,4 +8,5 @@ public class DestroyOnFinish : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    private void DestroyParent() { Destroy(transform.parent.gameObject); }
 }
