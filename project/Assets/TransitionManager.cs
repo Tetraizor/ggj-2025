@@ -9,6 +9,7 @@ public class TransitionManager : MonoSingleton<TransitionManager>
     // Start is called before the first frame update
     public Dictionary<GameObject, Vector3> ResetPositionMap = new Dictionary<GameObject, Vector3>();
     public Dictionary<GameObject, Quaternion> ResetRotationMap = new Dictionary<GameObject, Quaternion>();
+    public Slot[] slot;
     protected override void Awake()
     {
         base.Awake();
