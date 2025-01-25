@@ -18,6 +18,7 @@ public class BubbleManager : MonoSingleton<BubbleManager>
         if (Input.GetKeyDown(KeyCode.Space) && !GameStarted)
         {
             GameStarted = true;
+            ToolboxManager.Instance.GetComponent<ToolboxManager>().Close();
         } 
         if(Input.GetKeyDown(KeyCode.R))
         {

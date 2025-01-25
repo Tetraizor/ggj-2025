@@ -27,6 +27,8 @@ public class ItemManager : MonoSingleton<ItemManager>
         _cursor.GetComponent<SpriteRenderer>().sprite = _selectedItem.Icon;
     }
 
+    
+
     protected void Update()
     {
         RaycastHit2D hit = Physics2D.Raycast(_cursor.transform.position, Vector2.zero, 1, LayerMask.GetMask("Wall", "DontIgnore"));

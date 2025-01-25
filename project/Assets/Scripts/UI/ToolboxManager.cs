@@ -18,10 +18,14 @@ public class ToolboxManager : MonoSingleton<ToolboxManager>
     private bool _isToolboxOpen = true;
     public bool IsToolboxOpen => _isToolboxOpen;
 
+    [SerializeField] private Animator animator;
+
     private void Start()
     {
         _root = transform;
         _slotContainer = _root.Find("SlotContainer");
+
+        animator = GetComponent<Animator>();
 
         _slots = _slotContainer.GetComponentsInChildren<Slot>().ToList();
 

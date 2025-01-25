@@ -123,6 +123,32 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &184750991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7878996672475858136, guid: 91927d2f98e70c84884ec0f97c00f59e, type: 3}
+  m_PrefabInstance: {fileID: 657801435}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &184750994
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184750991}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bffa5fad532e84d5eaa9f31ae67d21fa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &263543152
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,6 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8edcd2fc618b54e70b4266cdc125e053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!114 &263543156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -587,7 +614,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -954,7 +981,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7878996672475858136, guid: 91927d2f98e70c84884ec0f97c00f59e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 184750994}
   m_SourcePrefab: {fileID: 100100000, guid: 91927d2f98e70c84884ec0f97c00f59e, type: 3}
 --- !u!1 &713773206
 GameObject:
