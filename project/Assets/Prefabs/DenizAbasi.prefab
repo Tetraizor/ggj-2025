@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 4412950726254310727}
   - component: {fileID: 5609378040429484059}
   - component: {fileID: 8419523500750319954}
-  m_Layer: 7
+  - component: {fileID: 7259838897599822424}
+  m_Layer: 6
   m_Name: DenizAbasi
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,9 +137,21 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49955225
+--- !u!114 &7259838897599822424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6731435459042541662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b900e59364eeb045916dff95cbb2482, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
