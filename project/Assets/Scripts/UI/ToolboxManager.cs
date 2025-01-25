@@ -130,9 +130,4 @@ public class ToolboxManager : MonoSingleton<ToolboxManager>
             Open();
         }
     }
-
-    private void OnDestroy()
-    {
-        ItemManager.Instance.ItemPlaced -= OnItemPlaced;
-    }
 }
