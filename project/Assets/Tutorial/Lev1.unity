@@ -288,6 +288,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 263543152}
   m_CullTransparentMesh: 1
+--- !u!1 &396816090 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1119277830197973732, guid: 5e237634c3afb6a47856a39e5712b7c1, type: 3}
+  m_PrefabInstance: {fileID: 5345079500154038706}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &435976206
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,6 +931,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1165bc9c3912b9b448706ef3722b4019, type: 3}
+--- !u!1 &618665284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6220016811768216605, guid: 1165bc9c3912b9b448706ef3722b4019, type: 3}
+  m_PrefabInstance: {fileID: 618665283}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &657801435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1304,7 +1314,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb531f24478cc3d4d88d304813ce73e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bubblePosiitons:
+  - {x: 0, y: 0, z: 0}
+  bubbles:
+  - {fileID: 618665284}
+  NextLevelContainer: {fileID: 396816090}
   GameStarted: 0
+  bubbleObject:
+  - {fileID: 6220016811768216605, guid: 1165bc9c3912b9b448706ef3722b4019, type: 3}
 --- !u!4 &1634576444
 Transform:
   m_ObjectHideFlags: 0

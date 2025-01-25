@@ -5,10 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class BubbleManager : MonoSingleton<BubbleManager>
 {
+    public List<Vector3> bubblePosiitons;
+    public List<GameObject> bubbles;
+    [SerializeField] private GameObject NextLevelContainer;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        if(bubbles.Count == 0)
+        {
+            SummonBubbles();
+        }
     }
     public bool GameStarted;
     // Update is called once per frame
@@ -22,7 +28,32 @@ public class BubbleManager : MonoSingleton<BubbleManager>
         } 
         if(Input.GetKeyDown(KeyCode.R))
         {
-            TransitionManager.Instance.PlayDeath(SceneManager.GetActiveScene().name);
+            TransitionManager.Instance.PlayReset();
+        }
+    }
+
+    public void KillBubbles()
+    {
+        GameStarted= false;
+        NextLevelContainer.GetComponent<ToNextLevel>().volume = 0;
+        ToolboxManager.Instance.Open();
+        foreach(GameObject bub in bubbles)
+        {
+            Destroy(bub);
+        }
+        bubbles.Clear();
+        SummonBubbles();
+    }
+
+    [SerializeField] private List<GameObject> bubbleObject;
+    public void SummonBubbles()
+    {
+        int i = 0;
+        foreach (Vector3 bub in bubblePosiitons)
+        {
+            GameObject obj = Instantiate(bubbleObject[i], bub, Quaternion.identity);
+            bubbles.Add(obj);
+            i += 1;
         }
     }
 }

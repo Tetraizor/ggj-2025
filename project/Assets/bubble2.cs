@@ -74,7 +74,7 @@ public class bubble2 : MonoBehaviour
         GameObject x = Instantiate(summonWhenPop, transform.position, Quaternion.identity);
         x.transform.localScale = transform.localScale;
         Destroy(gameObject);
-        TransitionManager.Instance.PlayDeath(SceneManager.GetActiveScene().name);
+        TransitionManager.Instance.PlayReset();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

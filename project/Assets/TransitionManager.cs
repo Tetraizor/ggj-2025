@@ -17,7 +17,6 @@ public class TransitionManager : MonoSingleton<TransitionManager>
     // Update is called once per frame
     public void EndScreen()
     {
-        Destroy(ItemManager.Instance.gameObject);
 
         SceneManager.LoadScene(scene);
     }
@@ -26,6 +25,14 @@ public class TransitionManager : MonoSingleton<TransitionManager>
         scene = s;
         GetComponent<Animator>().SetTrigger("go");
 
+    }
+    public void PlayReset()
+    {
+        GetComponent<Animator>().SetTrigger("re");
+    }
+    private void Reset_()
+    {
+        BubbleManager.Instance.KillBubbles();
     }
 }
 
