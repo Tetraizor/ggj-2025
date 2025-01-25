@@ -7,6 +7,7 @@ public class ToNextLevel : MonoBehaviour
     public float volume;
     public float ShouldBeVolume;
     [SerializeField] private string scene;
+    [SerializeField] private GameObject SlotManager;
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,6 +18,8 @@ public class ToNextLevel : MonoBehaviour
         }
         if(volume == ShouldBeVolume)
         {
+            Destroy(SlotManager);
+            TransitionManager.Instance.Resett();
             TransitionManager.Instance.PlayDeath(scene);
         }
     }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class bubble2 : MonoBehaviour
 {
@@ -73,6 +74,7 @@ public class bubble2 : MonoBehaviour
         GameObject x = Instantiate(summonWhenPop, transform.position, Quaternion.identity);
         x.transform.localScale = transform.localScale;
         Destroy(gameObject);
+        TransitionManager.Instance.PlayDeath(SceneManager.GetActiveScene().name);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
