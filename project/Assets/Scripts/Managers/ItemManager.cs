@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class ItemManager : MonoSingleton<ItemManager>
 {
-    [SerializeField] private Transform _cursor;
+    [SerializeField] private GameObject _cursor;
+    [SerializeField] private Sprite _cursorstart;
 
-    private Item _selectedItem => ToolboxManager.Instance.SelectedSlot?.Item;
+    [SerializeField] private Item _selectedItem => ToolboxManager.Instance.SelectedSlot?.Item;
 
     private bool _isPlacingItem = false;
     private GameObject _currentPlacable;
@@ -17,27 +18,49 @@ public class ItemManager : MonoSingleton<ItemManager>
     {
         base.Awake();
         ToolboxManager.SlotClicked += OnSlotClicked;
+        Cursor.visible = false;
+        _cursorstart = _cursor.GetComponent<SpriteRenderer>().sprite;
     }
 
     private void OnSlotClicked(Slot slot)
     {
+        _cursor.GetComponent<SpriteRenderer>().sprite = _selectedItem.Icon;
     }
 
     protected void Update()
     {
+        RaycastHit2D hit = Physics2D.Raycast(_cursor.transform.position, Vector2.zero, 1, LayerMask.GetMask("Wall", "DontIgnore"));
+
+        if (hit.collider == null && _selectedItem != null)
+        {
+            _cursor.GetComponent<SpriteRenderer>().color = Color.green;
+        }
+        else if (_selectedItem == null)
+        {
+            _cursor.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+        else
+        {
+            _cursor.GetComponent<SpriteRenderer>().color = Color.red;
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit2D hit = Physics2D.Raycast(_cursor.position, Vector2.zero, 1, LayerMask.GetMask("Wall", "DontIgnore"));
+            
 
             if (hit.collider == null)
             {
                 if (_selectedItem != null)
                 {
+                    _cursor.GetComponent<SpriteRenderer>().color = Color.red;
                     var placable = Instantiate(
                         _selectedItem.RelatedPrefab,
-                        _cursor.position,
+                        _cursor.transform.position,
                         Quaternion.identity
+
                     );
+                    _cursor.GetComponent<SpriteRenderer>().sprite = _cursorstart;
+                    _cursor.GetComponent<SpriteRenderer>().color = Color.white;
 
                     placable.name = _selectedItem.Name;
 
@@ -72,6 +95,6 @@ public class ItemManager : MonoSingleton<ItemManager>
 
         Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        _cursor.position = new Vector3(position.x, position.y, 0);
+        _cursor.transform.position = new Vector3(position.x, position.y, 0);
     }
 }
