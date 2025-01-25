@@ -1,8 +1,9 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Slot : MonoBehaviour
+public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("Data")]
     [SerializeField] private Item _item;
@@ -40,5 +41,15 @@ public class Slot : MonoBehaviour
 
             _button.interactable = false;
         }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        GetComponent<Animator>().SetTrigger("TextOut");
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        GetComponent<Animator>().SetTrigger("TextIn");
     }
 }
