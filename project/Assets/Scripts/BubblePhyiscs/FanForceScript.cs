@@ -11,7 +11,7 @@ public class FanForceScript : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Bubble"))
+        if (other.gameObject.CompareTag("Bubble") && BubbleManager.Instance.GameStarted)
         {
             other.GetComponent<Rigidbody2D>().AddForce(transform.right * speed);
         }
