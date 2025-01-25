@@ -13,7 +13,7 @@ public class knife : MonoBehaviour
         if (collision.CompareTag("Bubble"))
         {
             collision.gameObject.GetComponent<bubble2>().Pop(new Vector2(-transform.right.y, transform.right.x));
-            GetComponent<Collider2D>().enabled= false;
+            GetComponent<Collider2D>().enabled = false;
             GetComponentInChildren<Animator>().SetTrigger("boom");
         }
     }

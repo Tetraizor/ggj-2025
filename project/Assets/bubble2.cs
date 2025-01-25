@@ -44,11 +44,6 @@ public class bubble2 : MonoBehaviour
             enable= true;
         }
 
-
-        if (rb.velocity.magnitude <= 0.01)
-        {
-            rb.AddForce(new Vector2(Random.Range(-1, 1), Random.Range(-1, 1)) * 1.5f);
-        }
     }
     [SerializeField] private GameObject summonWhenPop;
     public void Pop(Vector3 collisionPoint)

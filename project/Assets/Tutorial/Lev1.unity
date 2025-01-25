@@ -844,7 +844,19 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5086476890448289949, guid: ef0d9bd7c4fd24350985be59ed9ae14d, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5086476890448289949, guid: ef0d9bd7c4fd24350985be59ed9ae14d, type: 3}
       propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0cdfd8336f29a6141a4e910157f1f185, type: 3}
+    - target: {fileID: 6562341362639939692, guid: ef0d9bd7c4fd24350985be59ed9ae14d, type: 3}
+      propertyPath: Count
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6562341362639939692, guid: ef0d9bd7c4fd24350985be59ed9ae14d, type: 3}
+      propertyPath: _item._icon
       value: 
       objectReference: {fileID: 21300000, guid: 0cdfd8336f29a6141a4e910157f1f185, type: 3}
     - target: {fileID: 6562341362639939692, guid: ef0d9bd7c4fd24350985be59ed9ae14d, type: 3}
