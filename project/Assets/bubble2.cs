@@ -20,8 +20,8 @@ public class bubble2 : MonoBehaviour
         if(Dominated)
         {
             Vector3 dir = -transform.position + Target.position;
-            rb.velocity= dir*20;
-            if (dir.magnitude < 1)
+            rb.velocity= dir *3 ;
+            if (dir.magnitude < 0.3 || GetComponent<SpriteRenderer>().color.a == 0)
             {
                 Destroy(gameObject);
             }
@@ -36,17 +36,31 @@ public class bubble2 : MonoBehaviour
             float colSize = bub.size;
             Vector3 center = (transform.position * Mathf.Sqrt(size) + collision.transform.position * Mathf.Sqrt(colSize) / (Mathf.Sqrt(size) + Mathf.Sqrt(colSize)));
             Vector2 newVel = (rb.mass * rb.velocity + colrb.velocity * colrb.mass) / (rb.mass + colrb.mass);
-            //No idea how to do it if the yare equal
+            //Check the intense difference in radius
+            //No idea how to do it if they are equal
             if(colrb.velocity.magnitude < rb.velocity.magnitude)
             {
-                bub.Target = transform;
-                bub.Dominated = true;
-                
-                collision.gameObject.GetComponent<bubble2>().Dominated = true;
-                size += colSize;
-                collision.transform.DOScale(Vector3.zero, 0.2f);
-                transform.DOScale(new Vector3(Mathf.Sqrt(size), Mathf.Sqrt(size), 1), 0.2f);
-                rb.velocity = newVel;
+                if (Mathf.Sqrt(size) * 1.2f < Mathf.Sqrt(colSize))
+                {
+                    Target = collision.transform;
+                    Dominated = true;
+                    colSize += size;
+                    transform.DOScale(new Vector3(0, 0, 1), 0.5f);
+                    GetComponent<SpriteRenderer>().DOFade(0, 0.2f);
+                    collision.transform.DOScale(new Vector3(Mathf.Sqrt(colSize), Mathf.Sqrt(colSize), 1), 0.2f);
+                    colrb.velocity = newVel;
+                }
+                else
+                {
+                    bub.Target = transform;
+                    bub.Dominated = true;
+
+                    size += colSize;
+                    collision.transform.DOScale(new Vector3(0, 0, 1), 0.5f);
+                    collision.GetComponent<SpriteRenderer>().DOFade(0, 0.2f);
+                    transform.DOScale(new Vector3(Mathf.Sqrt(size), Mathf.Sqrt(size), 1), 0.2f);
+                    rb.velocity = newVel;
+                }
                 
             }
         }
