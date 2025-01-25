@@ -37,7 +37,7 @@ public class bubble : MonoBehaviour
                 float targetRadius = Mathf.Sqrt(collision.transform.GetComponent<bubble>().size);
                 Vector3 center = (transform.position * Mathf.Sqrt(size) + collision.transform.position * targetRadius) / (Mathf.Sqrt(size) + targetRadius);
                 Vector3 TrueRad = new Vector3(Mathf.Sqrt(size + targetRadius), Mathf.Sqrt(size + targetRadius), 1);
-                if (selfrb.velocity.magnitude < 5 && collision.GetComponent<Rigidbody2D>().velocity.magnitude < 5)
+                if (selfrb.velocity.magnitude < 4 && collision.GetComponent<Rigidbody2D>().velocity.magnitude < 4)
                 {
                     
                     transform.DOMove(center, 0.2f);
