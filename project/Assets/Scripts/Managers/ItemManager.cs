@@ -24,7 +24,7 @@ public class ItemManager : MonoSingleton<ItemManager>
         _cursor.GetComponent<SpriteRenderer>().sprite = _selectedItem.Icon;
     }
 
-    
+
 
     protected void Update()
     {
@@ -93,5 +93,10 @@ public class ItemManager : MonoSingleton<ItemManager>
         Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         _cursor.transform.position = new Vector3(position.x, position.y, 0);
+    }
+
+    private void OnDestroy()
+    {
+        ToolboxManager.SlotClicked -= OnSlotClicked;
     }
 }
