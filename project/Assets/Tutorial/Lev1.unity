@@ -2186,6 +2186,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlobalMuicPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 4687548385995006793, guid: 56338f6146972514585287d137e0ea68, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5371255836251214026, guid: 56338f6146972514585287d137e0ea68, type: 3}
       propertyPath: Loop
       value: 1
