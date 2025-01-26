@@ -13,7 +13,7 @@ public class DenizAbasi : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Bubble"))
+        if (collision.CompareTag("Bubble") && BubbleManager.Instance.GameStarted)
         {
             collision.attachedRigidbody.velocity = Vector2.zero;
             collision.attachedRigidbody.AddForce(transform.up * 20, ForceMode2D.Impulse);
