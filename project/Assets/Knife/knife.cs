@@ -31,7 +31,7 @@ public class knife : MonoBehaviour
             GetComponentInChildren<Animator>().SetTrigger("boom");
         }
     }
-    private void OnMouseEnter()
+    private void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(1) && !BubbleManager.Instance.GameStarted)
         {
