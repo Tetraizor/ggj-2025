@@ -32,7 +32,9 @@ public class TransitionManager : MonoSingleton<TransitionManager>
     }
     private void Reset_()
     {
+        GetComponent<Animator>().ResetTrigger("re");
         BubbleManager.Instance.KillBubbles();
+
     }
 }
 
