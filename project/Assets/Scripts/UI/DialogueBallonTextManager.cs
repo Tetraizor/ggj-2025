@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class DialogueBallonTextManager : MonoBehaviour
 {
@@ -44,7 +45,7 @@ public class DialogueBallonTextManager : MonoBehaviour
         else if (count >= texts.Length)
         {
             ballon.SetActive(false);
-            posedion.SetActive(false);
+            posedion.GetComponent<Image>().DOFade(0, 1f);
         }
     }
 }
