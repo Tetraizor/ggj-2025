@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class IntroToNextLevel : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,12 @@ public class IntroToNextLevel : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public string scene;
+
+    public void ToLevel()
+    {
+        TransitionManager.Instance.PlayDeath(scene);
     }
 }

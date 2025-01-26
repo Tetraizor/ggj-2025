@@ -36,6 +36,11 @@ public class TransitionManager : MonoSingleton<TransitionManager>
         BubbleManager.Instance.KillBubbles();
 
     }
+    public void OnApplicationQuit()
+    {
+        Application.Quit();
+    }
+
 }
 
 
