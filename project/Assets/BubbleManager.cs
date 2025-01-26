@@ -24,7 +24,7 @@ public class BubbleManager : MonoSingleton<BubbleManager>
         {
             GameStarted = true;
             ToolboxManager.Instance.GetComponent<ToolboxManager>().Close();
-            UshersManager.Instance.GetComponent<ToolboxManager>().Close();
+            UshersManager.Instance.GetComponent<UshersManager>().HideUshers();
         } 
         if(Input.GetKeyDown(KeyCode.R))
         {
