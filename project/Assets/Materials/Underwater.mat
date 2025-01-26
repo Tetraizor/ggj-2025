@@ -27,6 +27,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _CausticsTex:
+        m_Texture: {fileID: 2800000, guid: 7bbd580557d94c24bbc1140a12f0bbf0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -63,6 +67,9 @@ Material:
     m_Floats:
     - _Brightness: 1
     - _BumpScale: 1
+    - _CausticSpeed: 0.1
+    - _CausticsStrength: 0.083
+    - _CausticsWaveStrength: 0.1
     - _ColorMask: 15
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -84,12 +91,12 @@ Material:
     - _StencilWriteMask: 255
     - _UVSec: 0
     - _UseUIAlphaClip: 0
-    - _WaveFrequency: 4
-    - _WaveSpeed: 3
-    - _WaveStrength: 0.002
+    - _WaveFrequency: 0.04
+    - _WaveSpeed: 0.5
+    - _WaveStrength: 0.006
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Tint: {r: 0.82382524, g: 0.9069836, b: 0.9339623, a: 1}
+    - _Tint: {r: 0.6949537, g: 0.77325106, b: 0.9150943, a: 1}
   m_BuildTextureStacks: []
