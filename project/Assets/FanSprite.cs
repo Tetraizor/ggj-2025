@@ -13,6 +13,12 @@ public class FanSprite : MonoBehaviour
         anim= GetComponent<Animator>();
     }
 
+    GameObject MySlot;
+    private void Start()
+    {
+        //0 for fan
+        MySlot = ToolboxManager.Instance.transform.GetChild(0).GetChild(0).gameObject;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -28,6 +34,16 @@ public class FanSprite : MonoBehaviour
             anim.SetBool("run", false);
             ps.SetActive(false);
             ps2.SetActive(false);
+        }
+    }
+
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(1) && !BubbleManager.Instance.GameStarted)
+        {
+            MySlot.GetComponent<Slot>().Count += 1;
+            MySlot.GetComponent<Slot>().UpdateGraphics();
+            Destroy(transform.parent.gameObject);
         }
     }
 }

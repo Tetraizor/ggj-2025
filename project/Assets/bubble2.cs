@@ -66,6 +66,9 @@ public class bubble2 : MonoBehaviour
             k.transform.localScale = new Vector3(Mathf.Sqrt(size / 2), Mathf.Sqrt(size / 2), 1);
             k.GetComponent<Rigidbody2D>().velocity = (secPos * Mathf.Sqrt(size)) / 3;
             k.GetComponent<Rigidbody2D>().velocity += rb.velocity / 2;
+            BubbleManager.Instance.bubbles.Add(k);
+            BubbleManager.Instance.bubbles.Add(b);
+
             Destroy(gameObject);
         }
     }
