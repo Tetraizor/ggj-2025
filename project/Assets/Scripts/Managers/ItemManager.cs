@@ -11,7 +11,7 @@ public class ItemManager : MonoSingleton<ItemManager>
 
     public delegate void ItemPlacedEventHandler(Item item);
     public event ItemPlacedEventHandler ItemPlaced;
-
+    [SerializeField] public GameObject Popsfx;
     protected override void Awake()
     {
         base.Awake();
@@ -51,6 +51,7 @@ public class ItemManager : MonoSingleton<ItemManager>
                 {
 
                     _cursor.GetComponent<SpriteRenderer>().color = Color.red;
+                    Instantiate(Popsfx, transform.position, Quaternion.identity);
                     var placable = Instantiate(
                         _selectedItem.RelatedPrefab,
                         _cursor.transform.position,

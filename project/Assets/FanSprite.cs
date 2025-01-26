@@ -7,6 +7,7 @@ public class FanSprite : MonoBehaviour
     private Animator anim;
     [SerializeField] private GameObject ps;
     [SerializeField] private GameObject ps2;
+    [SerializeField] private GameObject Popsfx;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -27,6 +28,10 @@ public class FanSprite : MonoBehaviour
             anim.SetBool("run", true);
             ps.SetActive(true);
             ps2.SetActive(true);
+            if(!GetComponent<AudioSource>().isPlaying)
+            {
+                GetComponent<AudioSource>().Play();
+            }
             
         }
         else
@@ -34,6 +39,7 @@ public class FanSprite : MonoBehaviour
             anim.SetBool("run", false);
             ps.SetActive(false);
             ps2.SetActive(false);
+            GetComponent<AudioSource>().Stop();
         }
     }
 
@@ -41,6 +47,7 @@ public class FanSprite : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1) && !BubbleManager.Instance.GameStarted)
         {
+            Instantiate(Popsfx, transform.position, Quaternion.identity);
             MySlot.GetComponent<Slot>().Count += 1;
             MySlot.GetComponent<Slot>().UpdateGraphics();
             Destroy(transform.parent.gameObject);

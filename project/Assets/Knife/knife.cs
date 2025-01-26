@@ -31,10 +31,12 @@ public class knife : MonoBehaviour
             GetComponentInChildren<Animator>().SetTrigger("boom");
         }
     }
+    [SerializeField] private GameObject Popsfx;
     private void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(1) && !BubbleManager.Instance.GameStarted)
         {
+            Instantiate(Popsfx, transform.position, Quaternion.identity);
             MySlot.GetComponent<Slot>().Count += 1;
             MySlot.GetComponent<Slot>().UpdateGraphics();
             Destroy(gameObject);

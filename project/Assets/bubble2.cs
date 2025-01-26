@@ -47,11 +47,14 @@ public class bubble2 : MonoBehaviour
 
     }
     [SerializeField] private GameObject summonWhenPop;
+    [SerializeField] private GameObject Popsfx;
     public void Pop(Vector3 collisionPoint)
     {
         if(enable_self)
         {
             GameObject x = Instantiate(summonWhenPop, transform.position, Quaternion.identity);
+            Instantiate(Popsfx, transform.position, Quaternion.identity);
+
             x.transform.localScale = transform.localScale;
             Vector3 onePos = (collisionPoint);
             Vector3 secPos = -(collisionPoint);
@@ -74,6 +77,7 @@ public class bubble2 : MonoBehaviour
     }
     public void Death()
     {
+        Instantiate(Popsfx, transform.position, Quaternion.identity);
         GameObject x = Instantiate(summonWhenPop, transform.position, Quaternion.identity);
         x.transform.localScale = transform.localScale;
         Destroy(gameObject);
@@ -84,6 +88,7 @@ public class bubble2 : MonoBehaviour
     {
         if (collision.CompareTag("Bubble") && enable && enable_self)
         {
+            Instantiate(Popsfx, transform.position, Quaternion.identity);
             bubble2 bub = collision.gameObject.GetComponent<bubble2>();
             Rigidbody2D colrb = collision.gameObject.GetComponent<Rigidbody2D>();
             float colSize = bub.size;

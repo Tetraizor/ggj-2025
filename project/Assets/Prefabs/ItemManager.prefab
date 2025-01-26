@@ -130,4 +130,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cursor: {fileID: 7449207983621755745}
-  _cursorstart: {fileID: 0}
+  Popsfx: {fileID: 7406805804229553792, guid: 880f394d41ed5ef4ab05bd98c703555e, type: 3}
