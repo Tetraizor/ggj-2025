@@ -3302,9 +3302,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textMeshPro: {fileID: 0}
   texts:
-  - We've reached our final lesson. This time, we'll be dealing with some sharp tasks.
-    You can use knives to split the bubbles in half and change your strategy.
-  - But be careful, a wrong move can mess everything up!
+  - Take thou my trident, sharp and true, to cleave the bubbles clean in two, and
+    shift thy course with wisdom's might
   count: 0
   ballon: {fileID: 0}
   posedion: {fileID: 0}

@@ -2876,10 +2876,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textMeshPro: {fileID: 0}
   texts:
-  - Now we will discover the secret to creating bigger bubbles! Crash two bubbles
-    together to merge them and watch them grow and become stronger.
-  - But you need to be careful, because not every growth will be an advantage!
+  - Now shall we unveil the secret art, where bubbles vast doth form their part.
+    Let spheres collide, unite, and grow, their strength and splendor soon to show.
+  - But tread with care, for growth untamed may not alway prove an advantage gained.
   count: 0
+  ballon: {fileID: 0}
+  posedion: {fileID: 0}
 --- !u!114 &2382039796323455137
 MonoBehaviour:
   m_ObjectHideFlags: 0
