@@ -68,7 +68,7 @@ Material:
     - _Brightness: 1
     - _BumpScale: 1
     - _CausticSpeed: 0.1
-    - _CausticsStrength: 0.083
+    - _CausticsStrength: 0.025
     - _CausticsWaveStrength: 0.1
     - _ColorMask: 15
     - _Cutoff: 0.5
@@ -98,5 +98,5 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Tint: {r: 0.6949537, g: 0.77325106, b: 0.9150943, a: 1}
+    - _Tint: {r: 0.9024564, g: 0.93055487, b: 0.9811321, a: 1}
   m_BuildTextureStacks: []
