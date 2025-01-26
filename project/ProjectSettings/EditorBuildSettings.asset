@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Tutorial/lev4.unity
     guid: d126d32580242dd448bf3ff019b42e26
+  - enabled: 1
+    path: Assets/Tutorial/lev5.unity
+    guid: cb37bb5cc54d1bd4abcf123b3275253a
+  - enabled: 1
+    path: Assets/Tutorial/lev6.unity
+    guid: 2f929e089ed34a7499db7d95fa4c8e7d
+  - enabled: 1
+    path: Assets/Tutorial/lev7.unity
+    guid: 35d1a114415f22342bd597f075a9894a
   m_configObjects: {}
